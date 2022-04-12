@@ -30,8 +30,14 @@ class App {
     const container = App.getElement('container');
     const prevBtn = App.createElement('div', 'button', 'previous');
     prevBtn.textContent = '<';
+    prevBtn.addEventListener('click', () => {
+      if (this.currentSlideIndex < this.images.length - 1) this.prevSlide();
+    });
     const nextBtn = App.createElement('div', 'button', 'next');
     nextBtn.textContent = '>';
+    nextBtn.addEventListener('click', () => {
+      if (this.currentSlideIndex > 0) this.nextSlide();
+    });
     container.append(prevBtn, nextBtn);
   }
 
@@ -67,6 +73,3 @@ const app = new App();
 app.initContainer();
 app.initSlides();
 app.initButtons();
-app.showSlide();
-app.nextSlide();
-app.prevSlide();
