@@ -8,6 +8,14 @@ class App {
     return document.querySelector(`.${className}`);
   };
 
+  images = [
+    './images/first.jpg',
+    './images/second.jpg',
+    './images/third.jpg',
+    './images/fourth.jpg',
+    './images/fifth.jpg',
+  ];
+
   initContainer() {
     const container = App.createElement('div', 'container');
     document.body.append(container);
@@ -15,6 +23,11 @@ class App {
 
   initSlides() {
     const slides = App.createElement('div', 'slides-container');
+    this.images.forEach((image) => {
+      const slide = App.createElement('div', 'slide');
+      slide.style['background-image'] = `url(${image})`;
+      slides.append(slide);
+    });
     const container = App.getElement('container');
     container.append(slides);
   }

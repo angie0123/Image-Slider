@@ -15,10 +15,20 @@ body {
   width: 600px;
   height: 500px;
   position: relative;
+  overflow: hidden;
 }
 
 .slides-container {
-  display: flex;
   height: inherit;
-  background-color: pink;
+  width: calc(3000px);
+  display: flex;
+  transform: translateX(-2500px);
+}
+
+.slide {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
