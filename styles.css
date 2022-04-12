@@ -20,14 +20,13 @@ body {
 
 .slides-container {
   height: inherit;
-  width: calc(3000px);
+  width: calc(5 * 600px);
   display: flex;
-  transform: translateX(-2500px);
 }
 
 .slide {
   height: 100%;
-  width: 100%;
+  width: 600px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

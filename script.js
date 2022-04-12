@@ -7,7 +7,6 @@ class App {
   static getElement = (className) => {
     return document.querySelector(`.${className}`);
   };
-
   images = [
     './images/first.jpg',
     './images/second.jpg',
@@ -15,6 +14,8 @@ class App {
     './images/fourth.jpg',
     './images/fifth.jpg',
   ];
+  currentSlideIndex = this.images.length - 1; //starts off at images.fifth.jpg
+  slideWidth = 600;
 
   initContainer() {
     const container = App.createElement('div', 'container');
@@ -31,8 +32,19 @@ class App {
     const container = App.getElement('container');
     container.append(slides);
   }
+
+  nextSlide() {
+    const slides = App.getElement('slides-container');
+    const translatePx = this.currentSlideIndex * this.slideWidth;
+    slides.setAttribute('style', `transform: translateX(-${translatePx}px)`);
+    this.currentSlideIndex--;
+  }
 }
 
 const app = new App();
 app.initContainer();
 app.initSlides();
+app.nextSlide();
+app.nextSlide();
+app.nextSlide();
+app.nextSlide();
