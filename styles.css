@@ -22,6 +22,7 @@ body {
   height: inherit;
   width: calc(5 * 600px);
   display: flex;
+  transition: transform 300ms ease-in-out;
 }
 
 .slide {

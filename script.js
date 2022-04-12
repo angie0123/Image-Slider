@@ -45,6 +45,3 @@ const app = new App();
 app.initContainer();
 app.initSlides();
 app.nextSlide();
-app.nextSlide();
-app.nextSlide();
-app.nextSlide();
