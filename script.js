@@ -1,7 +1,11 @@
 class App {
-  static createElement = (type, name) => {
+  static createElement = (type, ...args) => {
     const element = document.createElement(type);
-    if (name) element.classList.add(name);
+    if (args) {
+      [...args].forEach((arg) => {
+        element.classList.add(arg);
+      });
+    }
     return element;
   };
   static getElement = (className) => {
@@ -20,6 +24,13 @@ class App {
   initContainer() {
     const container = App.createElement('div', 'container');
     document.body.append(container);
+  }
+
+  initButtons() {
+    const container = App.getElement('container');
+    const prevBtn = App.createElement('div', 'button', 'previous');
+    const nextBtn = App.createElement('div', 'button', 'next');
+    container.append(prevBtn, nextBtn);
   }
 
   initSlides() {
@@ -53,6 +64,7 @@ class App {
 const app = new App();
 app.initContainer();
 app.initSlides();
+app.initButtons();
 app.showSlide();
 app.nextSlide();
 app.prevSlide();
