@@ -29,7 +29,9 @@ class App {
   initButtons() {
     const container = App.getElement('container');
     const prevBtn = App.createElement('div', 'button', 'previous');
+    prevBtn.textContent = '<';
     const nextBtn = App.createElement('div', 'button', 'next');
+    nextBtn.textContent = '>';
     container.append(prevBtn, nextBtn);
   }
 
