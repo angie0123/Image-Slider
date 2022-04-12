@@ -34,14 +34,25 @@ class App {
   }
 
   nextSlide() {
+    this.currentSlideIndex--;
+    this.showSlide();
+  }
+
+  showSlide() {
     const slides = App.getElement('slides-container');
     const translatePx = this.currentSlideIndex * this.slideWidth;
     slides.setAttribute('style', `transform: translateX(-${translatePx}px)`);
-    this.currentSlideIndex--;
+  }
+
+  prevSlide() {
+    this.currentSlideIndex++;
+    this.showSlide();
   }
 }
 
 const app = new App();
 app.initContainer();
 app.initSlides();
+app.showSlide();
 app.nextSlide();
+app.prevSlide();
