@@ -97,6 +97,19 @@ class App {
     this.showSlide();
     this.showLink();
   }
+
+  autoplay() {
+    setInterval(() => {
+      if (this.currentSlideIndex === this.images.length - 1) {
+        this.prevSlideIndex = this.currentSlideIndex;
+        this.currentSlideIndex = 0;
+        this.showLink();
+        this.showSlide();
+      } else {
+        this.nextSlide();
+      }
+    }, 3500);
+  }
 }
 
 const app = new App();
@@ -104,3 +117,4 @@ app.initContainer();
 app.initSlides();
 app.initButtons();
 app.initLinks();
+app.autoplay();
