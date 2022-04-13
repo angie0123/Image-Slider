@@ -18,7 +18,7 @@ class App {
     './images/fourth.jpg',
     './images/fifth.jpg',
   ];
-  currentSlideIndex = this.images.length - 1; //starts off at images.fifth.jpg
+  currentSlideIndex = 0;
   slideWidth = 600;
 
   initContainer() {
@@ -31,12 +31,12 @@ class App {
     const prevBtn = App.createElement('div', 'button', 'previous');
     prevBtn.textContent = '<';
     prevBtn.addEventListener('click', () => {
-      if (this.currentSlideIndex < this.images.length - 1) this.prevSlide();
+      if (this.currentSlideIndex > 0) this.prevSlide();
     });
     const nextBtn = App.createElement('div', 'button', 'next');
     nextBtn.textContent = '>';
     nextBtn.addEventListener('click', () => {
-      if (this.currentSlideIndex > 0) this.nextSlide();
+      if (this.currentSlideIndex < this.images.length - 1) this.nextSlide();
     });
     container.append(prevBtn, nextBtn);
   }
@@ -53,7 +53,7 @@ class App {
   }
 
   nextSlide() {
-    this.currentSlideIndex--;
+    this.currentSlideIndex++;
     this.showSlide();
   }
 
@@ -64,7 +64,7 @@ class App {
   }
 
   prevSlide() {
-    this.currentSlideIndex++;
+    this.currentSlideIndex--;
     this.showSlide();
   }
 }
