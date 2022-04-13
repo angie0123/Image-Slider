@@ -47,6 +47,13 @@ class App {
     const parent = App.getElement('container');
     for (let i = 0; i < this.images.length; i++) {
       const link = App.createElement('div', 'link');
+      link.addEventListener('click', () => {
+        this.prevSlideIndex = this.currentSlideIndex;
+        this.currentSlideIndex = i;
+        this.showSlide();
+        this.showLink();
+      });
+
       container.append(link);
     }
     parent.append(container);
