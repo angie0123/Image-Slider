@@ -20,6 +20,7 @@ class App {
   ];
   currentSlideIndex = 0;
   slideWidth = 600;
+  prevSlideIndex = null;
 
   initContainer() {
     const container = App.createElement('div', 'container');
@@ -62,9 +63,19 @@ class App {
     container.append(slides);
   }
 
+  showLink() {
+    const links = App.getElement('links');
+    if (this.prevSlideIndex !== null) {
+      links.children[this.prevSlideIndex].classList.remove('active');
+    }
+    links.children[this.currentSlideIndex].classList.add('active');
+  }
+
   nextSlide() {
+    this.prevSlideIndex = this.currentSlideIndex;
     this.currentSlideIndex++;
     this.showSlide();
+    this.showLink();
   }
 
   showSlide() {
@@ -74,8 +85,10 @@ class App {
   }
 
   prevSlide() {
+    this.prevSlideIndex = this.currentSlideIndex;
     this.currentSlideIndex--;
     this.showSlide();
+    this.showLink();
   }
 }
 
