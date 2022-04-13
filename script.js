@@ -41,6 +41,16 @@ class App {
     container.append(prevBtn, nextBtn);
   }
 
+  initLinks() {
+    const container = App.createElement('div', 'links');
+    const parent = App.getElement('container');
+    for (let i = 0; i < this.images.length; i++) {
+      const link = App.createElement('div', 'link');
+      container.append(link);
+    }
+    parent.append(container);
+  }
+
   initSlides() {
     const slides = App.createElement('div', 'slides-container');
     this.images.forEach((image) => {
@@ -73,3 +83,4 @@ const app = new App();
 app.initContainer();
 app.initSlides();
 app.initButtons();
+app.initLinks();
